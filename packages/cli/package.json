@@ -1,0 +1,30 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rollup -c rollup.config.mjs",
+    "dev": "rollup -c rollup.config.mjs -w",
+    "prep-publish": "pnpm run build && pnpm run test",
+    "release": "pnpm run prep-publish && pnpm publish --access public",
+    "test": "echo \"Run tests for my-cli\""
+  },
+  "bin": {
+    "my-cli": "./dist/index.js"
+  },
+  "dependencies": {
+    "shared": "workspace:*",
+    "tslib": "^2.6.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "rollup": "^4.9.1",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}

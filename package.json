@@ -1,0 +1,22 @@
+{
+  "name": "my-monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "pnpm -r --filter \"./packages/*\" run build",
+    "dev": "pnpm -r  --filter \"./packages/*\" --parallel run dev",
+    "publish-all": "pnpm --filter \"./packages/*\" --parallel run release",
+    "version-update": "pnpm --filter \"./packages/*\" version patch",
+    "publish-some": "pnpm --filter \"@my-monorepo/specific-package\" run release",
+    "test": "pnpm --filter \"./packages/*\" run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.5",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
